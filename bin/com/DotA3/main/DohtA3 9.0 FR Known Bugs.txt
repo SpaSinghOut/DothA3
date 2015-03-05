@@ -1,0 +1,21 @@
+Game Crashes:
+Picking the "NONE" option in the hero pick menu
+Trying to use abilities before having picked a hero
+
+Minor Issues:
+If the right button on the mouse is held down while the hero is walking to the location the hero will not walk all the way, but will instead stop as soon as it borders the clicked location.
+There is something on the minimap that does not represent any hero, creep, or tower. It is stationary and will look like anything that the player clicks on, unless the player clicks on themselves in which case it will look white
+The icon left of the clock that is supposed to show the player's hero does not do so unless the player has a different unit selected.
+If the player picks up a rapid regen rune their color does not change back to normal after the buff expires.
+The "T" button that is supposed to control whether or not the player is using their skill points only works after clicking on the "ability points" button. If the players then clicks away from the button the "T" button will
+once again stop working until the button is clicked
+
+Poorly/Not implemented:
+some skills may not give any additional benefits for putting more points into them
+for those that do give additional benefits the benefits most likely do not match up to the ones in game. I did not bother making specific skill values identical to the ones in DOTA 2
+the item bar only shows the items themselves, it does not have any textures of its own
+some runes are obsolete and do not do anything
+when trying to walk around something heroes and creeps will only walk around it in one direction (for example they will only turn right)
+when increasing attack speed there is a bottle cap to effective attack speed caused by a flat attack retraction time
+
+

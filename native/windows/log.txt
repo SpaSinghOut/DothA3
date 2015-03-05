@@ -1,0 +1,212 @@
+Inserting 236 actors
+At Second number 1, 0.043132578000000005 seconds were used for the tick function
+Inserting 236 actors
+At Second number 2, 0.06542164799999999 seconds were used for the tick function
+Inserting 236 actors
+Entity Tick took 0.000223435 seconds
+which is 1.34% of the time appropriated for a single tick
+Entity Render took 0.010839612 seconds
+which is 65.04% of the time appropriated for a single tick
+At Second number 3, 0.07974683300000003 seconds were used for the tick function
+Inserting 236 actors
+At Second number 4, 0.13700248200000012 seconds were used for the tick function
+Inserting 236 actors
+At Second number 5, 0.14831219900000003 seconds were used for the tick function
+Inserting 236 actors
+At Second number 6, 0.15946490500000007 seconds were used for the tick function
+Inserting 236 actors
+At Second number 7, 0.16991298999999999 seconds were used for the tick function
+Inserting 236 actors
+Entity Tick took 0.000188637 seconds
+which is 1.13% of the time appropriated for a single tick
+Entity Render took 0.009160321 seconds
+which is 54.96% of the time appropriated for a single tick
+At Second number 8, 0.18049955900000006 seconds were used for the tick function
+Inserting 236 actors
+At Second number 9, 0.19378781400000009 seconds were used for the tick function
+Inserting 236 actors
+At Second number 10, 0.22858566900000005 seconds were used for the tick function
+Inserting 236 actors
+At Second number 11, 0.2503819890000001 seconds were used for the tick function
+Inserting 236 actors
+At Second number 12, 0.25726309700000016 seconds were used for the tick function
+Inserting 236 actors
+Entity Tick took 0.000169719 seconds
+which is 1.02% of the time appropriated for a single tick
+Entity Render took 0.008787198 seconds
+which is 52.72% of the time appropriated for a single tick
+Entity Tick took 0.000169719 seconds
+which is 1.02% of the time appropriated for a single tick
+Entity Render took 0.008787198 seconds
+which is 52.72% of the time appropriated for a single tick
+At Second number 13, 0.26419053700000034 seconds were used for the tick function
+Inserting 236 actors
+At Second number 14, 0.27182552000000054 seconds were used for the tick function
+Inserting 236 actors
+At Second number 15, 0.2784557470000007 seconds were used for the tick function
+Inserting 236 actors
+At Second number 16, 0.28501356800000066 seconds were used for the tick function
+Inserting 236 actors
+At Second number 17, 0.2916923190000011 seconds were used for the tick function
+Inserting 236 actors
+Entity Tick took 0.000138272 seconds
+which is 0.83% of the time appropriated for a single tick
+Entity Render took 0.008644969 seconds
+which is 51.87% of the time appropriated for a single tick
+At Second number 18, 0.29822087500000116 seconds were used for the tick function
+Inserting 236 actors
+At Second number 19, 0.30522438000000135 seconds were used for the tick function
+Inserting 234 actors
+At Second number 20, 0.32924719500000127 seconds were used for the tick function
+Inserting 234 actors
+At Second number 21, 0.34611680600000144 seconds were used for the tick function
+Inserting 234 actors
+At Second number 22, 0.3611046760000015 seconds were used for the tick function
+Inserting 233 actors
+Entity Tick took 0.000135979 seconds
+which is 0.82% of the time appropriated for a single tick
+Entity Render took 0.008549218 seconds
+which is 51.30% of the time appropriated for a single tick
+At Second number 23, 0.37491297800000156 seconds were used for the tick function
+Inserting 233 actors
+At Second number 24, 0.3842366050000018 seconds were used for the tick function
+Inserting 233 actors
+At Second number 25, 0.3954307580000017 seconds were used for the tick function
+Inserting 233 actors
+At Second number 26, 0.40523736900000185 seconds were used for the tick function
+Inserting 232 actors
+At Second number 27, 0.41963911000000176 seconds were used for the tick function
+Inserting 232 actors
+Entity Tick took 0.000128268 seconds
+which is 0.77% of the time appropriated for a single tick
+Entity Render took 0.008493956 seconds
+which is 50.96% of the time appropriated for a single tick
+Entity Tick took 0.000128268 seconds
+which is 0.77% of the time appropriated for a single tick
+Entity Render took 0.008493956 seconds
+which is 50.96% of the time appropriated for a single tick
+At Second number 28, 0.4306755090000017 seconds were used for the tick function
+Inserting 252 actors
+At Second number 29, 0.48710853500000173 seconds were used for the tick function
+Inserting 252 actors
+At Second number 30, 0.5042585320000018 seconds were used for the tick function
+Inserting 252 actors
+At Second number 31, 0.5212915010000017 seconds were used for the tick function
+Inserting 251 actors
+At Second number 32, 0.5367757710000012 seconds were used for the tick function
+Inserting 251 actors
+Entity Tick took 0.000138887 seconds
+which is 0.83% of the time appropriated for a single tick
+Entity Render took 0.008439461 seconds
+which is 50.64% of the time appropriated for a single tick
+At Second number 33, 0.5496322340000013 seconds were used for the tick function
+Inserting 251 actors
+At Second number 34, 0.562699100000001 seconds were used for the tick function
+Inserting 251 actors
+At Second number 35, 0.5744988780000008 seconds were used for the tick function
+Inserting 251 actors
+At Second number 36, 0.5874292100000006 seconds were used for the tick function
+Inserting 250 actors
+At Second number 37, 0.6228322120000005 seconds were used for the tick function
+Inserting 250 actors
+Entity Tick took 0.000150220 seconds
+which is 0.90% of the time appropriated for a single tick
+Entity Render took 0.008395793 seconds
+which is 50.37% of the time appropriated for a single tick
+At Second number 38, 0.6850711420000003 seconds were used for the tick function
+Inserting 250 actors
+At Second number 39, 0.725178251 seconds were used for the tick function
+Inserting 250 actors
+At Second number 40, 0.7450282210000002 seconds were used for the tick function
+Inserting 250 actors
+At Second number 41, 0.7599407560000004 seconds were used for the tick function
+Inserting 251 actors
+At Second number 42, 0.7897192530000007 seconds were used for the tick function
+Inserting 250 actors
+Entity Tick took 0.000157970 seconds
+which is 0.95% of the time appropriated for a single tick
+Entity Render took 0.008363237 seconds
+which is 50.18% of the time appropriated for a single tick
+Entity Tick took 0.000157970 seconds
+which is 0.95% of the time appropriated for a single tick
+Entity Render took 0.008363237 seconds
+which is 50.18% of the time appropriated for a single tick
+At Second number 43, 0.8148285000000011 seconds were used for the tick function
+Inserting 250 actors
+At Second number 44, 0.8382776340000012 seconds were used for the tick function
+Inserting 249 actors
+At Second number 45, 0.8560517870000014 seconds were used for the tick function
+Inserting 249 actors
+At Second number 46, 0.869646028000001 seconds were used for the tick function
+Inserting 249 actors
+At Second number 47, 0.8820977540000008 seconds were used for the tick function
+Inserting 249 actors
+Entity Tick took 0.000155345 seconds
+which is 0.93% of the time appropriated for a single tick
+Entity Render took 0.008346238 seconds
+which is 50.08% of the time appropriated for a single tick
+At Second number 48, 0.894386135000001 seconds were used for the tick function
+Inserting 249 actors
+At Second number 49, 0.9110589880000013 seconds were used for the tick function
+Inserting 249 actors
+At Second number 50, 0.9213161640000014 seconds were used for the tick function
+Inserting 248 actors
+At Second number 51, 0.9290530580000012 seconds were used for the tick function
+Inserting 247 actors
+At Second number 52, 0.9432187870000014 seconds were used for the tick function
+Inserting 247 actors
+Entity Tick took 0.000149439 seconds
+which is 0.90% of the time appropriated for a single tick
+Entity Render took 0.008336203 seconds
+which is 50.02% of the time appropriated for a single tick
+At Second number 53, 0.9499367880000014 seconds were used for the tick function
+Inserting 247 actors
+At Second number 54, 0.9569473660000013 seconds were used for the tick function
+Inserting 247 actors
+At Second number 55, 0.9636029520000011 seconds were used for the tick function
+Inserting 247 actors
+At Second number 56, 0.9703541220000008 seconds were used for the tick function
+Inserting 247 actors
+At Second number 57, 0.9769892260000008 seconds were used for the tick function
+Inserting 247 actors
+Entity Tick took 0.000141371 seconds
+which is 0.85% of the time appropriated for a single tick
+Entity Render took 0.008331098 seconds
+which is 49.99% of the time appropriated for a single tick
+Entity Tick took 0.000141371 seconds
+which is 0.85% of the time appropriated for a single tick
+Entity Render took 0.008331098 seconds
+which is 49.99% of the time appropriated for a single tick
+At Second number 58, 0.9834751180000012 seconds were used for the tick function
+Inserting 267 actors
+At Second number 59, 1.034921685000001 seconds were used for the tick function
+Inserting 267 actors
+At Second number 60, 1.0474497330000005 seconds were used for the tick function
+Inserting 267 actors
+At Second number 61, 1.0599997290000012 seconds were used for the tick function
+Inserting 267 actors
+At Second number 62, 1.072728190000001 seconds were used for the tick function
+Inserting 265 actors
+Entity Tick took 0.000144973 seconds
+which is 0.87% of the time appropriated for a single tick
+Entity Render took 0.008316396 seconds
+which is 49.90% of the time appropriated for a single tick
+At Second number 63, 1.0967880720000007 seconds were used for the tick function
+Inserting 265 actors
+At Second number 64, 1.1270151830000015 seconds were used for the tick function
+Inserting 265 actors
+At Second number 65, 1.1553856670000018 seconds were used for the tick function
+Inserting 265 actors
+At Second number 66, 1.1824761310000023 seconds were used for the tick function
+Inserting 265 actors
+At Second number 67, 1.2457839260000028 seconds were used for the tick function
+Inserting 265 actors
+Entity Tick took 0.000163418 seconds
+which is 0.98% of the time appropriated for a single tick
+Entity Render took 0.008288489 seconds
+which is 49.73% of the time appropriated for a single tick
+At Second number 68, 1.3339934780000027 seconds were used for the tick function
+Inserting 265 actors
+At Second number 69, 1.3657409980000017 seconds were used for the tick function
+Inserting 265 actors
+At Second number 70, 1.389904982000001 seconds were used for the tick function
