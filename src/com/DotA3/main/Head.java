@@ -8,17 +8,11 @@ import java.util.*;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.*;
 import org.lwjgl.opengl.Display;
-import org.lwjgl.util.*;
 
 public class Head {  
 	public static void main(String[] args){
 		init();
-		while(Head.running){ 
-			run();
-		}
-		tracker.closeWriter();
-		Display.destroy();
-		((Player)controllers.get(0)).gui.dispatchEvent(new WindowEvent(((Player)controllers.get(0)).gui, WindowEvent.WINDOW_CLOSING));
+		
 	}
 	static boolean running;
 	private static int xDisplay;
@@ -35,6 +29,8 @@ public class Head {
 	public static Quadtree<Double, Actor>  qt = new Quadtree<Double, Actor>();
 	public static Tracker tracker = new Tracker();
 	private static final ResolutionMode resolutionMode = ResolutionMode.SCAN;
+	static long time = System.nanoTime();
+	static final int tickRate = 60;
 	enum ResolutionMode{
 		DEFAULT, CUSTOM, SCAN,;
 	}
@@ -74,6 +70,12 @@ public class Head {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		while(Head.running){ 
+			run();
+		}
+		tracker.closeWriter();
+		Display.destroy();
+		((Player)controllers.get(0)).gui.dispatchEvent(new WindowEvent(((Player)controllers.get(0)).gui, WindowEvent.WINDOW_CLOSING));
 	}
 	private static void setResolutionToDefault(){
 		xDisplay = 1920;
@@ -90,19 +92,16 @@ public class Head {
 		xDisplay = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getWidth();
 		yDisplay = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDisplayMode().getHeight();
 	}
-	static long time = System.nanoTime();
-	static final int tickRate = 60;
 	private static void run(){
-		while(System.nanoTime() > time + 1000000000 / tickRate){
+		MyThread one = new MyThread(1), two = new MyThread(2);
+		/*if(System.nanoTime() > time + 1000000000 / tickRate){
 			time += 1000000000 / tickRate;
 			if(tickCount++ > tickRate * heroPickSecondDelay)
 				tick();
-		}
-		if(tracker.trackedEntities[Tracker.FUNC_RENDER])tracker.giveStartTime(Tracker.FUNC_RENDER);
-		for(HeroOwner heroOwner:controllers)if(heroOwner.getClass() == Player.class)render(((Player)heroOwner));
-		if(tracker.trackedEntities[Tracker.FUNC_RENDER])tracker.giveEndTime(Tracker.FUNC_RENDER);
+			render();
+		}*/
 	}
-	private static void tick(){
+	static void tick(){
 		if(tracker.trackedEntities[Tracker.FUNC_TICK])tracker.giveStartTime(Tracker.FUNC_TICK);
 		if(tracker.trackedEntities[Tracker.FUNC_QUADTREE_RESET])tracker.giveStartTime(Tracker.FUNC_QUADTREE_RESET);
 		qt.clear();
@@ -130,6 +129,11 @@ public class Head {
 		}
 		if(tracker.trackedEntities[Tracker.FUNC_TICK])tracker.giveEndTime(Tracker.FUNC_TICK);
 	}	
+	static void render(){
+		if(tracker.trackedEntities[Tracker.FUNC_RENDER])tracker.giveStartTime(Tracker.FUNC_RENDER);
+		for(HeroOwner heroOwner:controllers)if(heroOwner.getClass() == Player.class)render(((Player)heroOwner));
+		if(tracker.trackedEntities[Tracker.FUNC_RENDER])tracker.giveEndTime(Tracker.FUNC_RENDER);
+	}
 	private static void render(Player player){
 		try {
 			Display.setParent(player.gui.canvas);
@@ -205,5 +209,30 @@ public class Head {
 	}
 	public static void out(String string){
 		for(HeroOwner p: controllers)if(p.getClass() == Player.class)((Player)(p)).gui.out(string);
+	}
+}
+class MyThread implements Runnable{
+	int x;
+	MyThread(int x){
+		this.x = x;
+		run();
+	}
+	public void run() {
+		if(x == 1){
+			if(System.nanoTime() > Head.time + 1000000000 / Head.tickRate){
+				Head.time += 1000000000 / Head.tickRate;
+				if(Head.tickCount++ > Head.tickRate * Head.heroPickSecondDelay)
+					Head.tick();
+			}
+		}
+		else if(System.nanoTime() > Head.time + 1000000000 / Head.tickRate)Head.render();
+		/* COPY MATERIAL
+		 * if(System.nanoTime() > time + 1000000000 / tickRate){
+			time += 1000000000 / tickRate;
+			if(tickCount++ > tickRate * heroPickSecondDelay)
+				tick();
+			render();
+		}
+		 */
 	}
 }

@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
-import com.DotA3.main.Util.Color;
-
 public class Hero extends Alive{
 	private static final int inventorySize = 6;
 	public int shotAlg = 1;

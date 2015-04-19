@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Alive extends Actor{
-	static int experienceRange = 650;
+	static int experienceRange = 650; 
 	MissileType equippedSpell;
 	boolean invulnerable;
 	int invulnerabilityCount;

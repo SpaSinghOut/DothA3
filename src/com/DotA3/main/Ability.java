@@ -1,8 +1,9 @@
 package com.DotA3.main;
 
 import java.util.ArrayList;
+
 public class Ability {
-	enum AbilityType{
+	public enum AbilityType{
 		PLAZMAFIELD(7,10,120,Util.Color.GREEN, CastType.INSTANT, LevellingType.NORMAL),
 		STATICLINK(13,17,20,Util.Color.BLUE, CastType.ALIVETARGET, LevellingType.NORMAL),
 		STATICSTORM(15,30, 60,Util.Color.BLUE, CastType.INSTANT, LevellingType.ULTIMATE),
@@ -22,10 +23,10 @@ public class Ability {
 		NONE(0,0,0, Util.Color.WHITE, CastType.INSTANT, LevellingType.NORMAL),;
 		int CD;										//The cool down of this ability
 		int manaCost;								//The amount of mana required to use this ability
-		Util.Color color;							//The main color of this ability
+		public Util.Color color;							//The main color of this ability
 		int duration;								//How long this ability lasts
-		CastType castType;							//The way in which this ability is cast
-		int[] levelRequirements;					//A list of the hero levels at which this ability can have more points put towards it
+		public CastType castType;							//The way in which this ability is cast
+		public int[] levelRequirements;					//A list of the hero levels at which this ability can have more points put towards it
 		Ability owner;
 		private AbilityType(double setDuration, int setCD, int setManaCost,
 				Util.Color setColor, CastType setCastType, LevellingType setLevellingType){
@@ -71,14 +72,14 @@ public class Ability {
 	}
 	Hero owner; 								//The hero that has this ability
 	int CDRemaining;							//The amount of time remaining until this ability is off of cool down
-	State state;								//Is the ability ready, on cool down, etc.
+	public State state;								//Is the ability ready, on cool down, etc.
 	int durationLeft;							//How much time this ability has left until it ends
 	private Alive target;						//If this ability targets an Alive what is that target
 	private Location targetLocation;			//and what is that Alive's location
-	int level;									//The amount of skill points that were put into this ability
+	public int level;									//The amount of skill points that were put into this ability
 	int castControl;							//Is used to prevent toggle skills from activating multiple times per click/press
 	ArrayList<Actor> components = new ArrayList<Actor>(); //A list of actors that are visual effects of this ability
-	AbilityType abilityType;
+	public AbilityType abilityType;
 	public Ability(AbilityType setAbilityType, Hero setOwner){
 		owner = setOwner;
 		abilityType = setAbilityType;
@@ -121,7 +122,7 @@ public class Ability {
 			state = State.DOWN;
 			break;
 		case ALIVETARGET:
-			activate(owner.owner.selectedUnit.getLocation());
+			activate(owner.owner.selectedUnit.location);
 			state = State.DOWN;
 			break;
 		case CHANNELING:
@@ -159,13 +160,13 @@ public class Ability {
 			Missile missile;
 			Head.out("test");
 			for(int i = 0; i < 15 * level; i++){
-				missile = new Missile(MissileType.GYROW, owner, new Location(location.getX() - 75 * level, location.getY() - 75 * level + i * 10), location);
+				missile = new Missile(MissileType.GYROW, owner, new Location(location.x - 75 * level, location.y - 75 * level + i * 10), location);
 				components.add(missile);
-				missile = new Missile(MissileType.GYROW,owner, new Location(location.getX() + 75 * level, location.getY() - 75 * level + i * 10), location);
+				missile = new Missile(MissileType.GYROW,owner, new Location(location.x + 75 * level, location.y - 75 * level + i * 10), location);
 				components.add(missile);
-				missile = new Missile(MissileType.GYROW,owner,new Location(location.getX() - 75 * level + i * 10, location.getY() - 75 * level), location);
+				missile = new Missile(MissileType.GYROW,owner,new Location(location.x - 75 * level + i * 10, location.y - 75 * level), location);
 				components.add(missile);
-				missile = new Missile(MissileType.GYROW,owner, new Location(location.getX() - 75 * level + i *10, location.getY() + 75 * level), location);
+				missile = new Missile(MissileType.GYROW,owner, new Location(location.x - 75 * level + i *10, location.y + 75 * level), location);
 				components.add(missile);
 			}
 			break;
@@ -177,8 +178,8 @@ public class Ability {
 				Effect link = new Effect(2,2, false, abilityType.duration, b);
 				link.color = abilityType.color;
 				link.setLocation(new Location(
-				owner.getLocation().getX() + (target.getLocation().getX() - owner.getLocation().getX()) / (numLinks - i),
-				owner.getLocation().getY() + (target.getLocation().getY() - owner.getLocation().getY()) / (numLinks - i)));
+				owner.location.x + (target.location.x - owner.location.x) / (numLinks - i),
+				owner.location.y + (target.location.y - owner.location.y) / (numLinks - i)));
 				b.effects.add(link);
 			}
 			break;
@@ -195,8 +196,8 @@ public class Ability {
 			break;
 		case DROWSILENCE:
 			int radius = 200;
-			for(Actor a: Head.qt.retrieveBox(setLocation.getX() - radius, setLocation.getY() - radius,
-												setLocation.getX() + radius, setLocation.getY() + radius))
+			for(Actor a: Head.qt.retrieveBox(setLocation.x - radius, setLocation.y - radius,
+												setLocation.x + radius, setLocation.y + radius))
 				if(Alive.class.isAssignableFrom(a.getClass()) 
 				&& Util.getRealCentralDistance(a, setLocation) < radius)
 					new Buff((Alive)a, Buff.BuffName.SILENCE, abilityType.duration + level);
@@ -210,21 +211,26 @@ public class Ability {
 		owner.changeStat(Constants.mana, -(abilityType.manaCost));
 		switch(abilityType){
 		case PLAZMAFIELD:
-			new Buff(owner, Buff.BuffName.PLAZMAFIELD, this);
+			Buff pf = new Buff(owner, Buff.BuffName.PLAZMAFIELD, this);
+			Effect a = new Effect(15,15, false, abilityType.duration, owner );
+			a.changeBaseSpeed(210);
+			a.color = Util.Color.GREEN;
 			for(int i = 0; i <= 50; i++){
-				components.add(new Missile(MissileType.PLAZMAFIELD, owner, 
-						owner.getLocation().getX() - 100,
-						owner.getLocation().getY() + 100 - (i * 4)));
-				components.add(new Missile(MissileType.PLAZMAFIELD, owner, 
-						owner.getLocation().getX() + 100,
-						owner.getLocation().getY() + 100 - (i * 4)));
-				components.add(new Missile(MissileType.PLAZMAFIELD,owner, 
-						owner.getLocation().getX() + 100 - (i * 4),
-						owner.getLocation().getY() + 100));
-				components.add(new Missile(MissileType.PLAZMAFIELD, owner, 
-						owner.getLocation().getX() + 100 - (i * 4),
-						owner.getLocation().getY() - 100));
+				a.setTarget(new Location(owner.location.x - abilityType.duration / 2 * a.getTrueSpeed(),
+						owner.location.y + abilityType.duration / 2 * a.getTrueSpeed() - (i * 4)));
+				pf.effects.add(a);
+				a.setTarget(new Location(owner.location.x + abilityType.duration / 2 * a.getTrueSpeed(),
+						owner.location.y + abilityType.duration / 2 * a.getTrueSpeed() - (i * 4)));
+				pf.effects.add(a);
+				a.setTarget(new Location(owner.location.x + abilityType.duration / 2 * a.getTrueSpeed() - (i * 4),
+						owner.location.y + abilityType.duration / 2 * a.getTrueSpeed()));
+				pf.effects.add(a);
+				a.setTarget(new Location(owner.location.x + abilityType.duration / 2 * a.getTrueSpeed() - (i * 4),
+						owner.location.y - abilityType.duration / 2 * a.getTrueSpeed()
+						));
+				pf.effects.add(a);
 			}
+			for(Effect e: pf.effects)e.setLocation(new Location(owner.location));
 			break;
 		case STATICSTORM:
 			Buff ss = new Buff(owner, Buff.BuffName.STATICSTORM, this);
@@ -249,7 +255,7 @@ public class Ability {
 			else Buff.removeBuff((owner), Buff.BuffName.FROSTARROWSPARENT);
 			break;
 		case DROWAURA:
-			//new Aura(owner, 600, Buff.BuffName.PRECISIONAURA, Aura.AffectedUnits.ALL);
+			new Aura(owner, 600, Buff.BuffName.PRECISIONAURA, Aura.AffectedUnits.ALL,level);
 			break;
 		case MARKSMANSHIP:
 			activatePassiveStatChange(Buff.BuffName.MARKSMANSHIP);
@@ -279,7 +285,7 @@ public class Ability {
 		switch(abilityType){
 		case POWERSHOT:
 			Missile m = new Missile(MissileType.POWERSHOT, owner,
-					targetLocation.getX(), targetLocation.getY());
+					targetLocation.x, targetLocation.y);
 			m.penetrating = true;
 			break;
 			default:break;

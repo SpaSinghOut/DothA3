@@ -1,6 +1,5 @@
 package com.DotA3.main;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import java.awt.Color;
@@ -13,13 +12,11 @@ import org.newdawn.slick.util.ResourceLoader;
 
 import java.awt.Font;
 import java.awt.Canvas;
-import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
